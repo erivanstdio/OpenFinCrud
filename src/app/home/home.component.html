@@ -1,12 +1,14 @@
-<div>
-  <h1>Gestão</h1>
-  <nav>
-    <a routerLink="/home/partners" routerLinkActive="active">Listar parceiros</a>
-    <a routerLink="/home/partners/new">Cadastrar parceiros</a>
-    <a routerLink="/home/external-companies">Listar empresas externas</a>
-    <a routerLink="/home/external-companies/new">Cadastrar empresa externa</a>
-    <a routerLink="/home/about">Sobre</a>
-    <a (click)="logout()">Sair</a>
-  </nav>
-</div>
+<mat-toolbar color="primary" class="container">
+  <span class="title">Teddy Digital</span>
+  <span class="title2">CRUD</span>
+  <span class="example-spacer"></span>
+  <div>
+    <button class="button-container" routerLink="/home/partners" mat-button>LISTAR PARCEIROS</button>
+    <button class="button-container" routerLink="/home/partners/new" mat-button>CADASTRAR PARCEIRO</button>
+    <button class="button-container" routerLink="/home/external-companies" mat-button>LISTAR EMPRESAS EXTERNAS</button>
+    <button class="button-container" routerLink="/home/external-companies/new" mat-button>CADASTRAR EMPRESA EXTERNA</button>
+    <button class="about-button" routerLink="/home/about" mat-button>SOBRE</button>
+    <button class="exit-button" (click)="logout()" mat-button>SAIR</button>
+  </div>
+</mat-toolbar>
 <router-outlet></router-outlet>
