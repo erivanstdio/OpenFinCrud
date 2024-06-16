@@ -18,7 +18,7 @@ export class ExternalCompaniesListComponent implements OnInit {
   }
 
   loadCompanies() {
-    this.externalCompaniesService.getAll().subscribe(data => {
+    this.externalCompaniesService.getAll().subscribe(data => {     
       this.companies = data;
     });
   }

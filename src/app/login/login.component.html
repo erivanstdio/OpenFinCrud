@@ -1,15 +1,24 @@
+
+
 <div class="container">
-  <h2 class="title">Login</h2>
-  <form class="login-form" (ngSubmit)="login()">
-    <div>
-      <label for="username">Usuário:</label>
-      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+  <div class="box">
+    <div style="background-color: #f1f1f1;" class="left-side">
+      <img style="margin-top: 40px;" src="../../assets/teddy_left_image.PNG" />
     </div>
-    <div>
-      <label>
-        <input type="checkbox" [(ngModel)]="keepLoggedIn" name="keepLoggedIn"> Manter conectado
-      </label>
+    <div class="right-side">
+      <form class="login-form" (ngSubmit)="login()">
+        <h2 class="title">Login</h2>
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Usuário</mat-label>
+          <input type="text" id="username" [(ngModel)]="username" name="username" matInput>
+        </mat-form-field>
+        <div>
+          <label>
+            <input type="checkbox" [(ngModel)]="keepLoggedIn" name="keepLoggedIn"> Manter conectado
+          </label>
+        </div>
+        <button mat-raised-button color="accent" type="submit">Entrar</button>
+      </form>
     </div>
-    <button type="submit">Entrar</button>
-  </form>
+  </div>
 </div>

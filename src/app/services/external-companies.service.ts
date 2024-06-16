@@ -11,6 +11,9 @@ export class ExternalCompaniesService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
+
+    console.log('all companies', this.http.get(this.apiUrl))
+
     return this.http.get(this.apiUrl);
   }
 
