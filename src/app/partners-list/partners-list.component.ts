@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-partners-list',
   templateUrl: './partners-list.component.html',
-  styleUrls: ['./partners-list.component.css']
+  styleUrls: ['./partners-list.component.scss']
 })
 export class PartnersListComponent implements OnInit {
 

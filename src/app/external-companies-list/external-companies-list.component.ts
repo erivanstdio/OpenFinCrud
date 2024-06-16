@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-external-companies-list',
   templateUrl: './external-companies-list.component.html',
-  styleUrls: ['./external-companies-list.component.css']
+  styleUrls: ['./external-companies-list.component.scss']
 })
 export class ExternalCompaniesListComponent implements OnInit {
   companies: any[] = [];

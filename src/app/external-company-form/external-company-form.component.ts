@@ -6,7 +6,7 @@ import { ExternalCompaniesService } from '../services/external-companies.service
 @Component({
   selector: 'app-external-company-form',
   templateUrl: './external-company-form.component.html',
-  styleUrls: ['./external-company-form.component.css']
+  styleUrls: ['./external-company-form.component.scss']
 })
 export class ExternalCompanyFormComponent implements OnInit {
   companyForm: FormGroup;

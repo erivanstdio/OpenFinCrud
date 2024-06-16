@@ -8,7 +8,7 @@ import { PartnersService } from '../services/partners.service';
 @Component({
   selector: 'app-partners-form',
   templateUrl: './partners-form.component.html',
-  styleUrls: ['./partners-form.component.css']
+  styleUrls: ['./partners-form.component.scss']
 })
 export class PartnersFormComponent implements OnInit {
   partnerForm: FormGroup;
