@@ -1,0 +1,10 @@
+<div>
+  <h2>{{ id ? 'Editar Empresa Externa' : 'Cadastrar Empresa Externa' }}</h2>
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Nome:</label>
+      <input id="name" formControlName="name">
+    </div>
+    <button type="submit" [disabled]="companyForm.invalid">{{ id ? 'Atualizar' : 'Cadastrar' }}</button>
+  </form>
+</div>

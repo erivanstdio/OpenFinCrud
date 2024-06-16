@@ -1,0 +1,23 @@
+<div>
+  <h2>Listar Parceiros</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let partner of partners | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+        <td>{{ partner.id }}</td>
+        <td>{{ partner.name }}</td>
+        <td>
+          <button (click)="editPartner(partner.id)">Editar</button>
+          <button (click)="deletePartner(partner.id)">Deletar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>

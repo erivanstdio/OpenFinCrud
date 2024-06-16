@@ -1,0 +1,10 @@
+<div>
+  <h2>{{ id ? 'Editar Parceiro' : 'Cadastrar Parceiro' }}</h2>
+  <form [formGroup]="partnerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Nome:</label>
+      <input id="name" formControlName="name">
+    </div>
+    <button type="submit" [disabled]="partnerForm.invalid">{{ id ? 'Atualizar' : 'Cadastrar' }}</button>
+  </form>
+</div>

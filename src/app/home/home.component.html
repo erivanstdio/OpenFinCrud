@@ -1,0 +1,12 @@
+<div>
+  <h1>Gestão</h1>
+  <nav>
+    <a routerLink="/home/partners" routerLinkActive="active">Listar parceiros</a>
+    <a routerLink="/home/partners/new">Cadastrar parceiros</a>
+    <a routerLink="/home/external-companies">Listar empresas externas</a>
+    <a routerLink="/home/external-companies/new">Cadastrar empresa externa</a>
+    <a routerLink="/home/about">Sobre</a>
+    <a (click)="logout()">Sair</a>
+  </nav>
+</div>
+<router-outlet></router-outlet>
