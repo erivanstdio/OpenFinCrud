@@ -5,10 +5,23 @@
 */
 
 
+.left-side {
+  padding-left: 45px;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 
 .image-container {
-  margin-left: 50px;
-  height: 50px;
+  height: 95%;
+  width: 110%;
+
+  border-radius: 10px;
 }
 
 
@@ -31,11 +44,6 @@
   overflow: hidden;
 }
 
-.left-side {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-}
 
 .right-side {
   flex: 1;
@@ -46,17 +54,50 @@
   align-items: center; 
 }
 
+
+.login-message-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  height: 100px; 
+  width: 80%; 
+  justify-content: center;
+  align-items: center;
+}
+
+
+.title {
+  font-family: "Montserrat", Sans-serif;
+  font-weight: 600;
+  margin: auto;
+  font-size: 40px;
+  color: #151515;
+}
+
+.subtitle {
+  font-family: "Montserrat", Sans-serif;
+  margin: auto;
+  font-size: 18px;
+  color: #151515;
+}
+
+
 .login-form {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid red;
   align-items: center;
+  justify-content: center;
+  margin-left: 35px;
 }
 
-.title {
-  font-size: 40px;
-  color: #151515;
-  margin-bottom: 20px;
+.keep-logged-in-checkbox {
+  
+  font-size: 11px;
+  padding-bottom: 20px;
 }
 
+.login-button {
+  background-color: #EB6625; 
+  width: 100%;
+}

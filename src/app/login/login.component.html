@@ -1,23 +1,28 @@
-
-
 <div class="container">
   <div class="box">
-    <div style="background-color: #f1f1f1;" class="left-side">
-      <img style="margin-top: 40px;" src="../../assets/teddy_left_image.PNG" />
+    <div class="left-side">
+      <img class="image-container" src="../../assets/teddy_left_image.PNG" />
     </div>
     <div class="right-side">
+      <div class="login-message-box">
+        <h2 class="title">Bem vindo!</h2>
+        <h2 class="subtitle">Insira seu usuário para continuar:</h2>
+      </div>
       <form class="login-form" (ngSubmit)="login()">
-        <h2 class="title">Login</h2>
         <mat-form-field appearance="outline" color="accent">
           <mat-label>Usuário</mat-label>
           <input type="text" id="username" [(ngModel)]="username" name="username" matInput>
+          <mat-icon color="accent" matSuffix>account_circle</mat-icon>
         </mat-form-field>
-        <div>
+        <div class="keep-logged-in-checkbox">
           <label>
+            
             <input type="checkbox" [(ngModel)]="keepLoggedIn" name="keepLoggedIn"> Manter conectado
           </label>
         </div>
-        <button mat-raised-button color="accent" type="submit">Entrar</button>
+        <button mat-raised-button class="login-button" style="background: #EB6625" type="submit">
+          <span style="color: white;">Entrar</span>
+        </button>
       </form>
     </div>
   </div>

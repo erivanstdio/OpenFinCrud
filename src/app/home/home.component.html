@@ -4,9 +4,9 @@
   <span class="example-spacer"></span>
   <div>
     <button class="button-container" routerLink="/home/partners" mat-button>LISTAR PARCEIROS</button>
-    <button class="button-container" routerLink="/home/partners/new" mat-button>CADASTRAR PARCEIRO</button>
+    <button class="button-container" (click)="openDialogBox('partners')" routerLink="/home/partners" mat-button>CADASTRAR PARCEIRO</button>
     <button class="button-container" routerLink="/home/external-companies" mat-button>LISTAR EMPRESAS EXTERNAS</button>
-    <button class="button-container" routerLink="/home/external-companies/new" mat-button>CADASTRAR EMPRESA EXTERNA</button>
+    <button class="button-container" (click)="openDialogBox('externalCompanies')" routerLink="/home/external-companies" mat-button>CADASTRAR EMPRESA EXTERNA</button>
     <button class="about-button" routerLink="/home/about" mat-button>SOBRE</button>
     <button class="exit-button" (click)="logout()" mat-button>SAIR</button>
   </div>

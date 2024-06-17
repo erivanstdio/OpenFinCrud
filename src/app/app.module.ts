@@ -19,6 +19,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // components
 import { LoginComponent } from './login/login.component';
@@ -28,6 +32,7 @@ import { PartnersFormComponent } from './partners-form/partners-form.component';
 import { ExternalCompaniesListComponent } from './external-companies-list/external-companies-list.component';
 import { ExternalCompanyFormComponent } from './external-company-form/external-company-form.component';
 import { AboutComponent } from './about/about.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,8 @@ import { AboutComponent } from './about/about.component';
     PartnersFormComponent,
     ExternalCompaniesListComponent,
     ExternalCompanyFormComponent,
-    AboutComponent
+    AboutComponent,
+    DialogBoxComponent
   ],
   imports: [
     HttpClientModule,
@@ -55,7 +61,11 @@ import { AboutComponent } from './about/about.component';
     MatInputModule,
     MatPaginatorModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

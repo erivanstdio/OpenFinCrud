@@ -1,0 +1,19 @@
+.container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  margin: 2%;
+  flex-direction: column;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.submit-button {
+  width: 100%;
+}
