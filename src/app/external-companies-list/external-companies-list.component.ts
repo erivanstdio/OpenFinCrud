@@ -1,6 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExternalCompaniesService } from '../services/external-companies.service';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
+type Company = {
+  name: string;
+  id: number;
+  companyName: string;
+  isActive: boolean;
+  collaboratorsCount: number;
+}
 
 @Component({
   selector: 'app-external-companies-list',
@@ -8,8 +18,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./external-companies-list.component.scss']
 })
 export class ExternalCompaniesListComponent implements OnInit {
-  companies: any[] = [];
+
+  companies!: Company[];
+  dataSource: any;
+  displayedColumns: string[] = ['id', 'name', 'status', 'collaboratorsCount', 'action'];
   currentPage: number = 1;
+  @ViewChild(MatPaginator) matPaginator!: MatPaginator
 
   constructor(private externalCompaniesService: ExternalCompaniesService, private router: Router) { }
 
@@ -20,6 +34,8 @@ export class ExternalCompaniesListComponent implements OnInit {
   loadCompanies() {
     this.externalCompaniesService.getAll().subscribe(data => {     
       this.companies = data;
+      this.dataSource = new MatTableDataSource<Company>(this.companies)
+      this.dataSource.paginator = this.matPaginator
     });
   }
 

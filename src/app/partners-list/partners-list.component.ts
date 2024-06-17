@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 
-interface Partners {
+type Partners = {
   name: string;
   id: number;
 }
@@ -25,7 +25,6 @@ export class PartnersListComponent implements OnInit {
   @ViewChild(MatPaginator) matPaginator!: MatPaginator
 
   constructor(private partnersService: PartnersService, private router: Router, private route: ActivatedRoute) {}
-
 
   ngOnInit() {
 
