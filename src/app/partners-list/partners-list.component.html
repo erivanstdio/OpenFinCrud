@@ -1,23 +1,37 @@
-<div>
-  <h2>Listar Parceiros</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let partner of partners | paginate: { itemsPerPage: 10, currentPage: currentPage }">
-        <td>{{ partner.id }}</td>
-        <td>{{ partner.name }}</td>
-        <td>
-          <button (click)="editPartner(partner.id)">Editar</button>
-          <button (click)="deletePartner(partner.id)">Deletar</button>
+<mat-card>
+
+  <mat-card-header class="title">Listar Parceiros</mat-card-header>
+  <mat-card-content class="mat-table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+
+          <button (click)="editPartner(element.id)" mat-raised-button color="primary">Editar</button>
+          <button (click)="deletePartner(element.id)" mat-raised-button color="warn">Deletar</button>
         </td>
-      </tr>
-    </tbody>
-  </table>
-  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
-</div>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+  
+  <mat-card-footer>
+    <mat-paginator color="accent" [pageSizeOptions]="[5, 10, 20, 50]" />
+  </mat-card-footer>
+
+</mat-card>
