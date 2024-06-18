@@ -1,16 +1,17 @@
-<div class="top-section"> 
-  <img src="../../assets/companies.png" alt="companies">
-</div>
 <div class="container">
-    <h1>{{ id ? 'Editar empresa externa' : 'Adicionar empresa externa' }}</h1>
+  <div class="top-section">
+    <img src="../../assets/companies.png" alt="companies">
+  </div>
+  <div class="bottom-section">
     <form class="external-company-form" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+      <h1 class="title">{{ id ? 'Editar empresa externa' : 'Adicionar empresa externa' }}</h1>
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Nome</mat-label>
         <input type="text" id="name" formControlName="name" matInput>
       </mat-form-field>
-      <button mat-raised-button style="background: #EB6625" type="submit"
-        [disabled]="companyForm.invalid">
+      <button mat-raised-button style="background: #EB6625" type="submit" [disabled]="companyForm.invalid">
         <span style="color: white;">{{ id ? 'Atualizar' : 'Cadastrar' }}</span>
       </button>
     </form>
+  </div>
 </div>
