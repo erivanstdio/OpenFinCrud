@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExternalCompaniesService } from '../services/external-companies.service';
-import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ExternalCompanyFormComponent } from '../external-company-form/external-company-form.component';
 
 type Company = {
   name: string;
@@ -25,12 +26,20 @@ export class ExternalCompaniesListComponent implements OnInit {
   currentPage: number = 1;
   @ViewChild(MatPaginator) matPaginator!: MatPaginator
 
-  constructor(private externalCompaniesService: ExternalCompaniesService, private router: Router) { }
+  constructor(
+    private externalCompaniesService: ExternalCompaniesService, 
+    private _dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.loadCompanies();
   }
 
+  openEditDialogBox(id: number) {
+    
+    this._dialog.open(ExternalCompanyFormComponent, { data: { id: id } })
+  }
+  
   loadCompanies() {
     this.externalCompaniesService.getAll().subscribe(data => {     
       this.companies = data;
@@ -43,10 +52,5 @@ export class ExternalCompaniesListComponent implements OnInit {
     this.externalCompaniesService.delete(id).subscribe(() => {
       this.loadCompanies();
     });
-  }
-
-  editCompany(id: number) {
-
-    this.router.navigate(['/home/partners/edit', id])
   }
 }

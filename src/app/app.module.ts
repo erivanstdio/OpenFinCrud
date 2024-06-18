@@ -32,7 +32,7 @@ import { PartnersFormComponent } from './partners-form/partners-form.component';
 import { ExternalCompaniesListComponent } from './external-companies-list/external-companies-list.component';
 import { ExternalCompanyFormComponent } from './external-company-form/external-company-form.component';
 import { AboutComponent } from './about/about.component';
-import { CustomPaginator } from './util/CustomPaginatorConfigurator';
+import { CustomPaginator } from './helpers/CustomPaginatorConfigurator';
 
 @NgModule({
   declarations: [

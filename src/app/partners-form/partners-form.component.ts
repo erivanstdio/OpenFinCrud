@@ -1,11 +1,11 @@
 
 
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PartnersService } from '../services/partners.service';
-import { MatDialogRef } from '@angular/material/dialog';
-
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { redirectTo } from '../util/redirectTo';
 @Component({
   selector: 'app-partners-form',
   templateUrl: './partners-form.component.html',
@@ -18,9 +18,9 @@ export class PartnersFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private partnersService: PartnersService,
-    private route: ActivatedRoute,
     private router: Router,
-    private dialogRef: MatDialogRef<PartnersFormComponent>
+    private dialogRef: MatDialogRef<PartnersFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { id: number }
   ) {
     this.partnerForm = this.fb.group({
       name: ['', Validators.required]
@@ -28,7 +28,7 @@ export class PartnersFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.data.id;
     if (this.id) {
       this.partnersService.getById(this.id).subscribe(data => {
         this.partnerForm.patchValue(data);
@@ -36,21 +36,16 @@ export class PartnersFormComponent implements OnInit {
     }
   }
 
-  redirectTo(uri: string) {
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([uri])});
-  }
-
   onSubmit() {
     if (this.partnerForm.valid) {
       if (this.id) {
-        this.partnersService.update(this.id, this.partnerForm.value).subscribe(() => {
-          this.router.navigate(['/home/partners']);
+        this.partnersService.update(this.id, this.partnerForm.value).subscribe(() => {          
+          redirectTo(this.router,'/home/partners');
         });
       } else {
         this.partnersService.create(this.partnerForm.value).subscribe(() => {
           this.dialogRef.close()
-          this.redirectTo('/home/partners');
+          redirectTo(this.router,'/home/partners');
         });
       }
     }
