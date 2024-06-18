@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
       this._dialog.open(PartnersFormComponent)
     }
   }
+  
   ngOnInit() {
 
     const user = this.authService.getUser();

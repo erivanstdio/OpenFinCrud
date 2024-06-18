@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExternalCompaniesService } from '../services/external-companies.service';
-
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-external-company-form',
   templateUrl: './external-company-form.component.html',
@@ -16,7 +16,8 @@ export class ExternalCompanyFormComponent implements OnInit {
     private fb: FormBuilder,
     private externalCompaniesService: ExternalCompaniesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialogRef: MatDialogRef<ExternalCompanyFormComponent>
   ) {
     this.companyForm = this.fb.group({
       name: ['', Validators.required]
@@ -32,15 +33,22 @@ export class ExternalCompanyFormComponent implements OnInit {
     }
   }
 
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([uri])});
+  }
+
   onSubmit() {
     if (this.companyForm.valid) {
       if (this.id) {
         this.externalCompaniesService.update(this.id, this.companyForm.value).subscribe(() => {
+          this.dialogRef.close()
           this.router.navigate(['/home/external-companies']);
         });
       } else {
         this.externalCompaniesService.create(this.companyForm.value).subscribe(() => {
-          this.router.navigate(['/home/external-companies']);
+          this.dialogRef.close()
+          this.redirectTo('/home/external-companies');
         });
       }
     }

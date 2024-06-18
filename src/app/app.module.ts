@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -32,7 +32,7 @@ import { PartnersFormComponent } from './partners-form/partners-form.component';
 import { ExternalCompaniesListComponent } from './external-companies-list/external-companies-list.component';
 import { ExternalCompanyFormComponent } from './external-company-form/external-company-form.component';
 import { AboutComponent } from './about/about.component';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { CustomPaginator } from './util/CustomPaginatorConfigurator';
 
 @NgModule({
   declarations: [
@@ -43,8 +43,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     PartnersFormComponent,
     ExternalCompaniesListComponent,
     ExternalCompanyFormComponent,
-    AboutComponent,
-    DialogBoxComponent
+    AboutComponent
   ],
   imports: [
     HttpClientModule,
@@ -67,7 +66,9 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatCheckboxModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: CustomPaginator() }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
