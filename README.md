@@ -39,7 +39,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-### Extra: Lista de atividades desempenhadas e TODO
+# Extra: Lista de atividades desempenhadas e TODO
 
 ## 15/06 
 Recebi o teste às 18:00 e a partir disso fiz a leitura do documento do teste e comecei minhas pesquisas baseadas nos requisitos.
