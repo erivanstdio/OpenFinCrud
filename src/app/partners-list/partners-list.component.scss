@@ -3,6 +3,13 @@
   font-size: 30px;
 }
 
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 33vh;
+}
+
 .mat-table-container {
   margin: 2%;
 }

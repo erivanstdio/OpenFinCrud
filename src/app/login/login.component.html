@@ -6,21 +6,29 @@
     <div class="right-side">
       <div class="login-message-box">
         <h2 class="title">Bem vindo!</h2>
-        <h2 class="subtitle">Insira seu usuário para continuar:</h2>
+        <h2 class="subtitle">Insira usuário e senha para continuar:</h2>
       </div>
-      <form class="login-form" (ngSubmit)="login()">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        
         <mat-form-field appearance="outline" color="accent">
           <mat-label>Usuário</mat-label>
-          <input type="text" id="username" [(ngModel)]="username" name="username" matInput>
+          <input type="text" id="username" formControlName="username" name="username" matInput>
           <mat-icon color="accent" matSuffix>account_circle</mat-icon>
         </mat-form-field>
+
+        <mat-form-field appearance="outline" color="accent">
+          <mat-label>Senha</mat-label>
+          <input type="text" id="password" formControlName="password" name="password" matInput>
+          <mat-icon color="accent" matSuffix>keychain</mat-icon>
+        </mat-form-field>
+
         <div class="keep-logged-in-checkbox">
           <label>
-            
-            <input type="checkbox" [(ngModel)]="keepLoggedIn" name="keepLoggedIn"> Manter conectado
+            <mat-checkbox formControlName="keepLoggedIn" name="keepLoggedIn"></mat-checkbox>
+            Manter conectado
           </label>
         </div>
-        <button mat-raised-button class="login-button" style="background: #EB6625" type="submit">
+        <button  [disabled]="loginForm.invalid" mat-raised-button class="login-button" style="background: #EB6625" type="submit">
           <span style="color: white;">Entrar</span>
         </button>
       </form>

@@ -23,6 +23,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // components
 import { LoginComponent } from './login/login.component';
@@ -64,7 +65,8 @@ import { CustomPaginator } from './helpers/CustomPaginatorConfigurator';
     MatDividerModule,
     MatListModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: CustomPaginator() }

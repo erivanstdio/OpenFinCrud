@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PartnersService } from '../services/partners.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -24,11 +24,12 @@ export class PartnersListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'action'];
   currentPage: number = 1;
   @ViewChild(MatPaginator) matPaginator!: MatPaginator
+  isLoading: boolean = true;
 
   constructor(
-    private partnersService: PartnersService, 
+    private partnersService: PartnersService,
     private _dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit() {
 
@@ -36,11 +37,17 @@ export class PartnersListComponent implements OnInit {
   }
 
   loadPartners() {
-
+    this.isLoading = true
     this.partnersService.getAll().subscribe(data => {
       this.partners = data;
       this.dataSource = new MatTableDataSource<Partners>(this.partners)
       this.dataSource.paginator = this.matPaginator
+      this.isLoading = false
+
+    }, error => {
+
+      console.error('Error fetching data', error);
+      this.isLoading = false
     })
   }
 
@@ -50,7 +57,7 @@ export class PartnersListComponent implements OnInit {
   }
 
   openEditDialogBox(id: number) {
-    
+
     this._dialog.open(PartnersFormComponent, { data: { id: id } })
   }
 }

@@ -25,6 +25,7 @@ export class ExternalCompaniesListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'status', 'collaboratorsCount', 'action'];
   currentPage: number = 1;
   @ViewChild(MatPaginator) matPaginator!: MatPaginator
+  isLoading: boolean = true;
 
   constructor(
     private externalCompaniesService: ExternalCompaniesService, 
@@ -32,6 +33,7 @@ export class ExternalCompaniesListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.loadCompanies();
   }
 
@@ -41,10 +43,17 @@ export class ExternalCompaniesListComponent implements OnInit {
   }
   
   loadCompanies() {
+
+    this.isLoading = true
     this.externalCompaniesService.getAll().subscribe(data => {     
       this.companies = data;
       this.dataSource = new MatTableDataSource<Company>(this.companies)
       this.dataSource.paginator = this.matPaginator
+      this.isLoading = false
+    }, error => {
+
+      console.error('Error fetching data', error);
+      this.isLoading = false
     });
   }
 

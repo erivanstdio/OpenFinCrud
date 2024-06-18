@@ -31,8 +31,10 @@ export class HomeComponent implements OnInit {
 
     const user = this.authService.getUser();
 
+    this.router.navigate(['/home/partners']);
+    
     if (!user) {
-
+    
       this.router.navigate(['/']);
     }
   }

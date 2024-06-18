@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  login(username: string, keepLoggedIn: boolean) {
+  login(username: string, password: string, keepLoggedIn: boolean) {
 
     if (keepLoggedIn) {
 
