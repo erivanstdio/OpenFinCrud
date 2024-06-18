@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ExternalCompanyFormComponent } from '../external-company-form/external-company-form.component';
 import { FormComponent } from '../enum';
 import { PartnersFormComponent } from '../partners-form/partners-form.component';
+import { ɵparseCookieValue } from '@angular/common';
 
 
 @Component({
@@ -14,16 +15,18 @@ import { PartnersFormComponent } from '../partners-form/partners-form.component'
 })
 export class HomeComponent implements OnInit {
 
+  username: string | null = '';
+
   constructor(private authService: AuthService, private router: Router, private _dialog: MatDialog) { }
 
   openDialogBox(route: keyof typeof FormComponent) {
 
     if (route === FormComponent.externalCompanies) {
     
-      this._dialog.open(ExternalCompanyFormComponent)
+      this._dialog.open(ExternalCompanyFormComponent);
     } else {
 
-      this._dialog.open(PartnersFormComponent)
+      this._dialog.open(PartnersFormComponent);
     }
   }
   
@@ -31,6 +34,13 @@ export class HomeComponent implements OnInit {
 
     const user = this.authService.getUser();
 
+    this.username = localStorage.getItem('user');
+
+    if (!this.username) {
+
+      this.username = sessionStorage.getItem('user');
+    }
+    
     this.router.navigate(['/home/partners']);
     
     if (!user) {

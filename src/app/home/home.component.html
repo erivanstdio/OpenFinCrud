@@ -2,6 +2,7 @@
   <a href="https://teddydigital.io/" target="_blank" rel="noopener noreferrer">
     <img class="logo" src="../../assets/tof_logo.png"/>
   </a>
+  <h1 class="welcome-message" *ngIf="username">Bem vindo, {{ username }}! 👋</h1>
   <span class="example-spacer"></span>
   <div>
     <button class="button-container" routerLink="/home/partners" mat-button>LISTAR PARCEIROS</button>

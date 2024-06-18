@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
+## Docker build
+
+Run `docker build -t {container_name} .`
+It will install Node v16.14.2 and Angular CLI v15.0.0 on a container with your desired name (don't forget to name it!).
+
+After this, run the container
+Run `docker run -d -p 80:80 {container_name}`
+
+check if it is running:
+`docker ps`
+
+Finally, open your browser on [localhost](http://localhost:80).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
