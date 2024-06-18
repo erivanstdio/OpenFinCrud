@@ -20,12 +20,17 @@
 }
 
 .title {
-    margin-bottom: 40px;
+    font-family: "Montserrat", Sans-serif;
+    margin: 40px 0;
+}
+
+.subtitle {
+    font-family: "Montserrat", Sans-serif;
+    color: orange;
 }
 
 .external-company-form {
     margin-top: 70px;
-
     display: flex;
     flex-direction: column;
 }

@@ -4,7 +4,8 @@
   </div>
   <div class="bottom-section">
     <form class="external-company-form" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
-      <h1 class="title">{{ id ? 'Editar empresa externa' : 'Adicionar empresa externa' }}</h1>
+      <h1 class="title">{{ id ? 'Atualizar empresa 🏦' : 'Cadastre uma empresa 🏦' }}</h1>
+      <h5 class="subtitle">{{'Digite um nome para a empresa:' }}</h5>
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Nome</mat-label>
         <input type="text" id="name" formControlName="name" matInput>

@@ -1,0 +1,35 @@
+.container {
+  height: 70vh;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  height: 30%;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: 70%;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Montserrat", Sans-serif;
+  margin: 40px 0;
+}
+
+.subtitle {
+  font-family: "Montserrat", Sans-serif;
+  color: orange;
+}
+
+.external-company-form {
+  display: flex;
+  flex-direction: column;
+}

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PartnersService } from '../services/partners.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-partners-form',
@@ -18,7 +19,8 @@ export class PartnersFormComponent implements OnInit {
     private fb: FormBuilder,
     private partnersService: PartnersService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialogRef: MatDialogRef<PartnersFormComponent>
   ) {
     this.partnerForm = this.fb.group({
       name: ['', Validators.required]
@@ -34,6 +36,11 @@ export class PartnersFormComponent implements OnInit {
     }
   }
 
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([uri])});
+  }
+
   onSubmit() {
     if (this.partnerForm.valid) {
       if (this.id) {
@@ -42,7 +49,8 @@ export class PartnersFormComponent implements OnInit {
         });
       } else {
         this.partnersService.create(this.partnerForm.value).subscribe(() => {
-          this.router.navigate(['/home/partners']);
+          this.dialogRef.close()
+          this.redirectTo('/home/partners');
         });
       }
     }
