@@ -4,16 +4,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Docker build
 
-Run `docker build -t {container_name} .`
+`docker build -t {container_name} . `
+
 It will install Node v16.14.2 and Angular CLI v15.0.0 on a container with your desired name (don't forget to name it!).
 
 After this, run the container
-Run `docker run -d -p 80:80 {container_name}`
 
-check if it is running:
-`docker ps`
+`docker run -d -p 80:80 {container_name}`
 
-Finally, open your browser on [localhost](http://localhost:80).
+check if it is running with `docker ps`
+
+Finally, open your browser on [localhost](http://localhost:80) (port 80).
 
 ## Development server
 
@@ -55,9 +56,10 @@ A priori eu optei por fazer uma página para cada serviço, mas pra melhorar a i
 ## 18/06
 Pra finalizar, corrigi alguns errinhos de lógica e finalizei a tela de sobre, o Dockerfile e este ReadMe.
 
-TODO:
+## TODO:
 
 Redirecionamento para página da tabela ao acessar link enviado. (Checando se o usuário está autenticado);
+
 Deploy via Vercel/Github Pages.
 
 
