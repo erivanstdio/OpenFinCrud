@@ -1,18 +1,16 @@
 .left-side {
-  padding-left: 45px;
+  padding-left: 20px;
   flex: 1;
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .image-container {
   height: 95%;
-  width: 110%;
-
+  width: 50em;
   border-radius: 10px;
 }
 
@@ -27,9 +25,8 @@
 .box {
   border-radius: 15px;
   display: flex;
-  width: 80%;
+  width: 100em;
   height: 80%;
-  max-width: 1200px;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
